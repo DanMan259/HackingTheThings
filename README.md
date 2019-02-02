@@ -1,6 +1,5 @@
 # HackingTheThings
 
 Port scanner for QHacks2019
-NPM Pakcage
+NPM Package
 API with StdLib
-Python Shell
