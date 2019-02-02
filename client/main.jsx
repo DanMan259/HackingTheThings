@@ -15,6 +15,7 @@ import Login from '../imports/ui/login/Login';
 import Register from "../imports/ui/register/Register";
 import FinishRegister from "../imports/ui/register/thirdParty/FinishRegister";
 import Lost from '../imports/ui/notFound/Lost';
+import Test from '../imports/ui/Testing/Test';
 
 
 //Loads the Components from each of the files and brings to the page
@@ -34,6 +35,7 @@ Meteor.startup(() => {
                         <Route path='/login' component={ Login }/>
                         <Route exact path='/register' component={ Register }/>
                         <Route path='/register/:service' component={ FinishRegister }/>
+                        <Route path='/testing' component ={ Test }/>
                         <Route component={ Lost }/>
                     </Switch>
                 </Router>
