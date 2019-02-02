@@ -9,11 +9,15 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.1.5",
-    "meteor-node-stubs": "^0.4.1"
+    "bcrypt": "^3.0.3",
+    "meteor-node-stubs": "^0.4.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1",
+    "react-svg": "^5.0.23"
   },
   "meteor": {
     "mainModule": {
-      "client": "client/main.js",
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"

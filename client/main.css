@@ -1,4 +1,73 @@
-body {
-  padding: 10px;
-  font-family: sans-serif;
+/*ONLY GENERAL CSS GOES HERE*/
+
+/*Font CSS*/
+
+#body {
+  /*Font for the Page*/
+  font-family: 'Raleway', serif;
+  font-size: 22px;
+  /*For Sticky Footer*/
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#main {
+  /*For Sticky Footer*/
+  flex: 1 0 auto;
+}
+
+/*Footer CSS*/
+
+/*Second Column Footer*/
+
+#secondFooter-1:hover, #secondFooter-2:hover,
+#secondFooter-3:hover, #secondFooter-4:hover,
+#secondFooter-5:hover {
+  opacity: 0.5;
+}
+
+/*Third Column Footer Social Buttons*/
+
+#Footer-Facebook, #Footer-Twitter, #Footer-GooglePlus, #Footer-Linkedin {
+  padding: 20px;
+  font-size: 25px;
+  height: 65px;
+  width: 65px;
+  text-decoration: none;
+  text-align:center;
+  margin: 5px 0px 5px 0px;
+  border-radius: 50%;
+  -webkit-transition: color 1s;
+  -moz-transition:    color 1s;
+  -ms-transition:     color 1s;
+  -o-transition:      color 1s;
+  transition:         color 1s;
+  background: #424242 ;
+  color: #9e9e9e;
+}
+
+#Footer-Facebook:hover {
+  background: #3B5998 ;
+  color: white;
+}
+
+#Footer-Twitter:hover {
+  background: #55ACEE;
+  color: white;
+}
+
+#Footer-GooglePlus:hover {
+  background: #dd4b39;
+  color: white;
+}
+
+#Footer-Linkedin:hover {
+  background: #007bb5;
+  color: white;
+}
+
+/*Bottom Row Footer */
+#bottomRow-1:hover,#bottomRow-2:hover {
+  opacity: 0.5;
 }
