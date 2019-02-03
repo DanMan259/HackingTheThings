@@ -1,0 +1,100 @@
+{
+  "sample": [
+    {
+      "SEARCH": "bgp",
+      "DB_PATH_EXPLOIT": "/usr/local/opt/exploitdb/share/exploitdb",
+      "RESULTS_EXPLOIT": [
+        {
+          "Title": "Cisco IOS 12.3 - Show IP BGP Regexp Remote Denial of Service",
+          "EDB-ID": "30506",
+          "Date": "2007-08-17",
+          "Author": "anonymous",
+          "Type": "dos",
+          "Platform": "hardware",
+          "Path": "/usr/local/opt/exploitdb/share/exploitdb/exploits/hardware/dos/30506.txt"
+        },
+        {
+          "Title": "OpenBSD 4.1 - bgplg 'cmd' Cross-Site Scripting",
+          "EDB-ID": "31081",
+          "Date": "2007-10-10",
+          "Author": "Anton Karpov",
+          "Type": "webapps",
+          "Platform": "cgi",
+          "Path": "/usr/local/opt/exploitdb/share/exploitdb/exploits/cgi/webapps/31081.txt"
+        },
+        {
+          "Title": "Tcpdump - bgp_update_print Remote Denial of Service",
+          "EDB-ID": "1037",
+          "Date": "2005-06-09",
+          "Author": "simon",
+          "Type": "dos",
+          "Platform": "multiple",
+          "Path": "/usr/local/opt/exploitdb/share/exploitdb/exploits/multiple/dos/1037.c"
+        },
+        {
+          "Title": "tcpdump - Print-bgp.C Remote Integer Underflow",
+          "EDB-ID": "30319",
+          "Date": "2007-03-01",
+          "Author": "mu-b",
+          "Type": "remote",
+          "Platform": "linux",
+          "Path": "/usr/local/opt/exploitdb/share/exploitdb/exploits/linux/remote/30319.c"
+        }
+      ],
+      "DB_PATH_SHELLCODE": "/usr/local/opt/exploitdb/share/exploitdb",
+      "RESULTS_SHELLCODE": [
+      ],
+      "DB_PATH_PAPER": "/usr/local/opt/exploitdb/share/exploitdb-papers",
+      "RESULTS_PAPER": [
+      ]
+    },
+    {
+      "SEARCH": "bgp",
+      "DB_PATH_EXPLOIT": "/usr/local/opt/exploitdb/share/exploitdb",
+      "RESULTS_EXPLOIT": [
+        {
+          "Title": "Cisco IOS 12.3 - Show IP BGP Regexp Remote Denial of Service",
+          "EDB-ID": "30506",
+          "Date": "2007-08-17",
+          "Author": "anonymous",
+          "Type": "dos",
+          "Platform": "hardware",
+          "Path": "/usr/local/opt/exploitdb/share/exploitdb/exploits/hardware/dos/30506.txt"
+        },
+        {
+          "Title": "OpenBSD 4.1 - bgplg 'cmd' Cross-Site Scripting",
+          "EDB-ID": "31081",
+          "Date": "2007-10-10",
+          "Author": "Anton Karpov",
+          "Type": "webapps",
+          "Platform": "cgi",
+          "Path": "/usr/local/opt/exploitdb/share/exploitdb/exploits/cgi/webapps/31081.txt"
+        },
+        {
+          "Title": "Tcpdump - bgp_update_print Remote Denial of Service",
+          "EDB-ID": "1037",
+          "Date": "2005-06-09",
+          "Author": "simon",
+          "Type": "dos",
+          "Platform": "multiple",
+          "Path": "/usr/local/opt/exploitdb/share/exploitdb/exploits/multiple/dos/1037.c"
+        },
+        {
+          "Title": "tcpdump - Print-bgp.C Remote Integer Underflow",
+          "EDB-ID": "30319",
+          "Date": "2007-03-01",
+          "Author": "mu-b",
+          "Type": "remote",
+          "Platform": "linux",
+          "Path": "/usr/local/opt/exploitdb/share/exploitdb/exploits/linux/remote/30319.c"
+        }
+      ],
+      "DB_PATH_SHELLCODE": "/usr/local/opt/exploitdb/share/exploitdb",
+      "RESULTS_SHELLCODE": [
+      ],
+      "DB_PATH_PAPER": "/usr/local/opt/exploitdb/share/exploitdb-papers",
+      "RESULTS_PAPER": [
+      ]
+    }
+  ]
+}

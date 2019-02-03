@@ -21,3 +21,4 @@ materialize:materialize
 accounts-ui@1.3.0
 accounts-password@1.5.1
 fortawesome:fontawesome
+http

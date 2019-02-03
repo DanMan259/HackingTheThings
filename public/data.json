@@ -1,0 +1,20 @@
+{
+
+"port":[{"portid":"21","protocol":"tcp","reason":"no-response","service":"ftp","state":"filtered"},
+  {"portid":"22","protocol":"tcp","reason":"syn-ack","service":"ssh","state":"open"},
+  {"portid":"42","protocol":"tcp","reason":"no-response","service":"nameserver","state":"filtered"},
+  {"portid":"80","protocol":"tcp","reason":"syn-ack","service":"http","state":"open"},
+  {"portid":"135","protocol":"tcp","reason":"no-response","service":"msrpc","state":"filtered"},
+  {"portid":"137","protocol":"tcp","reason":"no-response","service":"netbios-ns","state":"filtered"},
+  {"portid":"138","protocol":"tcp","reason":"no-response","service":"netbios-dgm","state":"filtered"},
+  {"portid":"139","protocol":"tcp","reason":"no-response","service":"netbios-ssn","state":"filtered"},
+  {"portid":"179","protocol":"tcp","reason":"no-response","service":"bgp","state":"filtered"},
+  {"portid":"445","protocol":"tcp","reason":"no-response","service":"microsoft-ds","state":"filtered"},
+  {"portid":"593","protocol":"tcp","reason":"no-response","service":"http-rpc-epmap","state":"filtered"},
+  {"portid":"646","protocol":"tcp","reason":"no-response","service":"ldp","state":"filtered"},
+  {"portid":"707","protocol":"tcp","reason":"no-response","service":"borland-dsj","state":"filtered"},
+  {"portid":"711","protocol":"tcp","reason":"no-response","service":"cisco-tdp","state":"filtered"},
+  {"portid":"711","protocol":"tcp","reason":"no-response","service":"cisco-tdp","state":"filtered"}]
+
+}
+
