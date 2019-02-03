@@ -6,31 +6,35 @@ import { Meteor } from 'meteor/meteor';
 
 
 //Importing Local Components/Files
-import LoginWithGoogle from './SignIn-Buttons/google/LoginWithGoogle'
-import LoginWithCoinbase from './SignIn-Buttons/coinbase/LoginWithCoinbase'
 import './login.css'
 
 //Login Page
 
 export default class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-    googleRedirect(){
-        Meteor.loginWithGoogle()((error) => {
-            if (error) {
-                Session.set('errorMessage', error.reason || 'Unknown error');
-            }
+    handleChange(event) {
+        this.setState({
+            email: event.target.email,
+            password: event.target.password,
         });
     }
 
-    coinbaseRedirect(){
-        Meteor.loginWithCoinbase({
-            requestPermissions: ['wallet:transactions:read,wallet:user:email']
-        }, (error) => {
-            if (error) {
-                Session.set('errorMessage', error.reason || 'Unknown error');
-            }
-        });
+    handleSubmit(event) {
+        event.preventDefault();
+        var emailVar = this.state.email;
+        var passVar = this.state.password;
+        Meteor.loginWithPassword(emailVar,passVar);
     }
+
 
     render() {
         return (
@@ -40,21 +44,16 @@ export default class Login extends Component {
                 <div className="section" />
                 <div className="container center">
                     <div className="z-depth-1 grey lighten-4 row" style={{display: 'inline-block', padding: '32px 48px 0px 48px', border: '1px solid #EEE'}}>
-                        <LoginWithGoogle onClick={this.googleRedirect.bind(this)}/>
-                        <br />
-                        <br />
-                        <LoginWithCoinbase onClick={this.coinbaseRedirect.bind(this)}/>
-                        <br />
                         <form className="col s12" method="post">
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <input className="validate" type="email" name="email" id="login_email" autoComplete="on"/>
+                                    <input className="validate" type="email" name="email" id="login_email" autoComplete="on" value={this.state.email} onChange={this.handleChange} />
                                     <label htmlFor="email">Enter your email</label>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <input className="validate" type="password" name="password" id="login_password" autoComplete="on"/>
+                                    <input className="validate" type="password" name="password" id="login_password" autoComplete="on" value={this.state.password} onChange={this.handleChange} />
                                     <label htmlFor="password">Enter your password</label>
                                 </div>
                                 <label style={{float: 'right', paddingRight: 10}}>
@@ -70,7 +69,7 @@ export default class Login extends Component {
                 </div>
                 <div className="center">
                     <a href="/register" id="login-Register">Need an account?</a>
-                    <div className="section" />
+                    <div className="section"/>
                 </div>
             </div>
         );

@@ -12,4 +12,7 @@ Meteor.methods({
             console.log(e.message);
         }
     },
+    insertUser: (info) => {
+        Accounts.createUser(info);
+    },
 });

@@ -6,9 +6,44 @@ import React, { Component } from 'react';
 
 //Importing Local Components/Files
 import './register.css'
+import {Meteor} from "meteor/meteor";
 
 
 export default class Register extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+            profile: {
+                name: '',
+            },
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({
+            email: event.target.email,
+            password: event.target.password,
+            profile: {
+                name: event.target.name,
+            },
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        Meteor.call('insertUser', this.state,
+            (err) => {
+                if (err) {
+                    alert(err);
+                }
+            }
+        )
+    }
+
     render() {
         return (
             <div>
@@ -20,19 +55,19 @@ export default class Register extends Component {
                         <form className="col s12" method="post">
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <input id="name" type="text" className="validate" autoComplete="on" />
+                                    <input id="name" type="text" className="validate" autoComplete="on" value={this.state.profile.name} onChange={this.handleChange}/>
                                     <label htmlFor="name">Enter Your Name</label>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <input id="email" type="email" className="validate" autoComplete="off" />
+                                    <input id="email" type="email" className="validate" autoComplete="off" value={this.state.email} onChange={this.handleChange}/>
                                     <label htmlFor="email">Enter Your Email</label>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input-field col s6">
-                                    <input id="password" type="password" className="validate" autoComplete="off" />
+                                    <input id="password" type="password" className="validate" autoComplete="off" value={this.state.password} onChange={this.handleChange}/>
                                     <label htmlFor="password">Password</label>
                                 </div>
                                 <div className="input-field col s6">
