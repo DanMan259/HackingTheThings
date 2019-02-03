@@ -26,15 +26,25 @@ export default class Register extends Component {
     }
 
     componentDidMount() {
-    this.getData();
-    this.secureLine();
-
+        this.getExploitData();
+        this.getPortData();
+        this.secureLine();
     }
 
-    getData = (ipString,portString) =>{
-        Meteor.call('findCoinbaseinfo', ipString, portString, (error, result) => {
+    getExploitData = (ipString,portString) =>{
+        Meteor.call('exploitRequest', ipString, portString, (error, result) => {
             if (error) {
             //    alert('Error');
+            } else {
+                this.info.set(result);
+            }
+        });
+    };
+
+    getPortData = (ipString,portString) =>{
+        Meteor.call('portRequest', ipString, portString, (error, result) => {
+            if (error) {
+                //    alert('Error');
             } else {
                 this.info.set(result);
             }

@@ -5,3 +5,7 @@
 #forgetPassword:hover, #login-Register:hover {
     opacity: 0.5;
 }
+
+#login-Register {
+    color: dodgerblue;
+}
