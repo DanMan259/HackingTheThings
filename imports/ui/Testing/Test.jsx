@@ -1,13 +1,13 @@
 //Importing Packages
 import React, { Component } from 'react';
-import { HTTP } from 'meteor/http';
+import { Meteor } from "meteor/meteor";
 
 //Importing Collections
 
 
 //Importing Local Components/Files
 import './test.css'
-import {Meteor} from "meteor/meteor";
+
 
 //Global Variables
 let root = "https://www.exploit-db.com/exploits/";
@@ -34,9 +34,9 @@ export default class Register extends Component {
     getExploitData = (ipString,portString) =>{
         Meteor.call('exploitRequest', ipString, portString, (error, result) => {
             if (error) {
-            //    alert('Error');
+                console.log('Error');
             } else {
-                this.info.set(result);
+                this.setState({ data2 : result });
             }
         });
     };
@@ -44,19 +44,16 @@ export default class Register extends Component {
     getPortData = (ipString,portString) =>{
         Meteor.call('portRequest', ipString, portString, (error, result) => {
             if (error) {
-                //    alert('Error');
+                console.log('Error');
             } else {
-                this.info.set(result);
+                this.setState({ data : result });
             }
         });
     };
-
     secureLine = () => {
         Meteor.call('secureRequest', (error, result) => {
             if (error) {
-            //    alert('Error');
-            } else {
-                this.info.set(result);
+                console.log('Error');
             }
         })
     };
@@ -274,19 +271,11 @@ export default class Register extends Component {
                                     }
                                 </tbody>
                             </table>
-
-
-
                         </div>
                     </div>
                     <div className="col s12 m4 l1"/>
                 </div>
-
-
-
             </div>
-
-
         );
     }
 }

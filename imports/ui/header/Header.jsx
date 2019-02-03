@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 //Importing Collections
 
 //Importing Local Components/Files
-import LoginDropdown from './LoginDropdown';
+
 
 const styles = {
     combo:{
@@ -28,9 +28,6 @@ export default class Header extends Component {
                     <img src="testLogo.png" style={styles.logo}/>
                     <div>HackTheThings</div>
                 </a>
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li><LoginDropdown/></li>
-                </ul>
             </nav>
         );
     }

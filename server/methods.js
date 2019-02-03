@@ -12,7 +12,7 @@ Meteor.methods({
     },
     exploitRequest: async (ipString, portString) => {
         try {
-            let result =  await HTTP.call('GET', 'http://localhost:80/exploits?ip='+ipString+'&p='+portString);
+            let result =  await HTTP.call('GET', 'http://localhost:1500/exploits?ip='+ipString+'&p='+portString);
         }catch (e){
             console.log(e.message);
         }

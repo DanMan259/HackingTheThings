@@ -10,10 +10,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //Importing Local Components/Files
 import Header from '../imports/ui/header/Header'
 import Footer from '../imports/ui/footer/Footer'
-import Home from '../imports/ui/landingPage/Home';
-import Login from '../imports/ui/login/Login';
-import Register from "../imports/ui/register/Register";
-import FinishRegister from "../imports/ui/register/thirdParty/FinishRegister";
 import Lost from '../imports/ui/notFound/Lost';
 import Test from '../imports/ui/Testing/Test';
 
@@ -32,10 +28,6 @@ Meteor.startup(() => {
                 <Router>
                     <Switch>
                         <Route exact path='/' component={ Test }/>
-                        <Route path='/login' component={ Login }/>
-                        <Route exact path='/register' component={ Register }/>
-                        <Route path='/register/:service' component={ FinishRegister }/>
-                        <Route path='/testing' component ={ Test }/>
                         <Route component={ Lost }/>
                     </Switch>
                 </Router>
