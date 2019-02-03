@@ -21,7 +21,10 @@ export default class Register extends Component {
             data: null,
             data2: null,
             portMin: '',
-            portMax: ''
+            portMax: '',
+            showButton:false,
+            ip:'',
+            portstring:''
         }
     }
 
@@ -51,10 +54,32 @@ export default class Register extends Component {
         })
     };
 
+    printIp (){
+        let s = document.getElementById('ip_address').value;
+        let p1 = document.getElementById('port_min').value;
+        let p2 = document.getElementById('port_max').value;
+
+        this.setState({ip:s})
+        this.setState({portMin:p1})
+        this.setState({portMax:p2})
+
+        if(p1 == p2){
+            this.setState({portString:p1})
+        }else {
+            this.setState({portString:str(p1) + '-' +str(p2)})
+        }
+
+        console.log(s);
+    }
     showLoader() {
         console.log("fired");
         this.setState({isLoading: true});
         this.timeOut();
+    }
+
+    showButton() {
+        console.log("fired");
+        this.setState({showButton: true});
     }
 
     timeOut()
@@ -127,11 +152,18 @@ export default class Register extends Component {
                             <input placeholder="Port Max" min={$("#port_min").val()} max={65535} type="number" id="port_max" label="port_max" onChange={this.handleChangeValue.bind(this)} value={this.state.portMax}/>
                         </div>
 
+                        {this.state.showButton ? (
+                        <div className="col s12 m6 l4">
+                            <a className="waves-effect waves-light btn-large green" style={{ fontSize: 10}}>
+                                Secure The Device
+                            </a>
+                        </div>) : undefined}
+
 
                     </div>
                     <div className="col s12 m4 l2">
-                        <a className="btn-floating btn-large waves-effect waves-light green" style={{ fontSize: 12 }} onClick={() => {
-                            this.showLoader();
+                        <a className="btn-floating btn-large waves-effect waves-light green" style={{ fontSize: 11 }} onClick={() => {
+                            this.showLoader(), this.showButton(), this.printIp();
                         }}>
                             Search
                         </a>
