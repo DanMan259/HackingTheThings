@@ -31,7 +31,7 @@ Meteor.startup(() => {
             <div id="main">
                 <Router>
                     <Switch>
-                        <Route exact path='/' component={ Home }/>
+                        <Route exact path='/' component={ Test }/>
                         <Route path='/login' component={ Login }/>
                         <Route exact path='/register' component={ Register }/>
                         <Route path='/register/:service' component={ FinishRegister }/>

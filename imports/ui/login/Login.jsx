@@ -17,16 +17,22 @@ export default class Login extends Component {
             email: '',
             password: '',
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
-    handleChange(event) {
+    handleChange(e) {
+        const val = e.target.value;
         this.setState({
-            email: event.target.email,
-            password: event.target.password,
+            email: val
         });
     }
+    handleChange2(e) {
+        const val = e.target.value;
+        this.setState({
+            password: val
+        });
+    }
+
 
     handleSubmit(event) {
         event.preventDefault();
@@ -47,13 +53,13 @@ export default class Login extends Component {
                         <form className="col s12" method="post">
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <input className="validate" type="email" name="email" id="login_email" autoComplete="on" value={this.state.email} onChange={this.handleChange} />
+                                    <input className="validate" type="email" name="email" id="login_email" autoComplete="on" value={this.state.email} onChange={this.handleChange.bind(this)} />
                                     <label htmlFor="email">Enter your email</label>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <input className="validate" type="password" name="password" id="login_password" autoComplete="on" value={this.state.password} onChange={this.handleChange} />
+                                    <input className="validate" type="password" name="password" id="login_password" autoComplete="on" value={this.state.password} onChange={this.handleChange2.bind(this)} />
                                     <label htmlFor="password">Enter your password</label>
                                 </div>
                                 <label style={{float: 'right', paddingRight: 10}}>
