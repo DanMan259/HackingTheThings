@@ -76,9 +76,19 @@ export default class Register extends Component {
 
     handleChangeValue(e) {
         const val = e.target.value;
+
+        if (val < this.state.portMin) {
+            this.setState({
+                portMin: '',
+                portMax:''
+            });
+            alert("Port Min should be less than Port Max! ")
+        }
+        else{
             this.setState({
                 portMax: val
             });
+        }
     }
 
     handleChange(e) {
@@ -88,12 +98,6 @@ export default class Register extends Component {
                 portMin: ''
             });
             alert("Port Min should be more than 1! ")
-        }
-        else if (val > this.state.portMax) {
-            this.setState({
-                portMin: ''
-            });
-            alert("Port Min should be less than Port Max! ")
         }
         else{
             this.setState({
