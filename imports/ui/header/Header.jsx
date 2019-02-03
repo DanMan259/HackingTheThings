@@ -12,7 +12,10 @@ const styles = {
         flexWrap: 'wrap',
     },
     logo:{
-        paddingTop: 2
+        paddingTop: 2,
+        paddingTop: 2,
+        width: '100px',
+        height: '60px'
     }
 
 };
@@ -25,8 +28,7 @@ export default class Header extends Component {
         return (
             <nav className="green center brand-logo">
                 <a href="/" className="center brand-logo" style={styles.combo}>
-                    <img src="testLogo.png" style={styles.logo}/>
-                    <div>HackTheThings</div>
+                    <img src="app_logo.png" style={styles.logo}/>
                 </a>
             </nav>
         );

@@ -1,6 +1,7 @@
 //Importing Packages
 import React, { Component } from 'react';
 import { Meteor } from "meteor/meteor";
+import { HTTP } from 'meteor/http'
 
 //Importing Collections
 
@@ -24,59 +25,61 @@ export default class Register extends Component {
             portMax: '',
             showButton:false,
             ip:'',
-            portstring:''
+            portString:''
         }
     }
 
-    componentDidMount() {
-        this.getExploitData();
-        this.getPortData();
-        this.secureLine();
-    }
 
-    getExploitData = (ipString,portString) =>{
-        Meteor.call('exploitRequest', ipString, portString, (error, result) => {
-            if (error) {
-                console.log('Error');
-            } else {
-                this.setState({ data2 : result });
-            }
-        });
+    getExploitData = (ipString,portString,callback) =>{
+        console.log(ipString);
+        let result =   HTTP.call('GET', 'http://localhost:1500/exploits?ip='+ipString+'&p='+portString, callback);
     };
 
-    getPortData = (ipString,portString) =>{
-        Meteor.call('portRequest', ipString, portString, (error, result) => {
-            if (error) {
-                console.log('Error');
-            } else {
-                this.setState({ data : result });
-            }
-        });
+    getPortData =  (ipString,portString,callback) =>{
+        console.log(portString);
+        let result =  HTTP.call('GET', 'http://localhost:1500/ports?ip='+ipString+'&p='+portString, callback);
+
     };
-    secureLine = () => {
-        Meteor.call('secureRequest', (error, result) => {
-            if (error) {
-                console.log('Error');
-            }
-        })
+    secureLine = (val) => {
+        if (val){
+            Meteor.call('secureRequest', (error, result) => {
+                if (error) {
+                    console.log('Error');
+                }
+            })
+        }
     };
 
     printIp (){
         let s = document.getElementById('ip_address').value;
         let p1 = document.getElementById('port_min').value;
         let p2 = document.getElementById('port_max').value;
-
-        this.setState({ip:s})
-        this.setState({portMin:p1})
-        this.setState({portMax:p2})
+        let pstring;
+        this.setState({ip:s});
+        this.setState({portMin:p1});
+        this.setState({portMax:p2});
 
         if(p1 == p2){
-            this.setState({portString:p1})
-        }else {
-            this.setState({portString:str(p1) + '-' +str(p2)})
-        }
+            pstring = p1;
 
-        console.log(s);
+        }else {
+            pstring = p1 + '-' +p2;
+        }
+        this.setState({portString:pstring});
+
+
+        this.getExploitData(s,pstring, (err, result) =>{
+            console.log(err, result);
+            let jsonString= result.content;
+            console.log(jsonString);
+            this.setState({data2: JSON.parse(jsonString)});
+        });
+        this.getPortData(s,pstring, (err, result) =>{
+            console.log(err, result);
+            let jsonString= result.content;
+            console.log(jsonString);
+            this.setState({data: JSON.parse(jsonString)});
+        });
     }
     showLoader() {
         console.log("fired");
@@ -161,7 +164,9 @@ export default class Register extends Component {
 
                         {this.state.showButton ? (
                         <div className="col s12 m6 l4">
-                            <a className="waves-effect waves-light btn-large green" style={{ fontSize: 10}}>
+                            <a className="waves-effect waves-light btn-large green" style={{ fontSize: 10}} onClick={() => {
+                                this.secureLine(1);
+                            }}>
                                 Secure The Device
                             </a>
                         </div>) : undefined}
@@ -209,7 +214,7 @@ export default class Register extends Component {
                                     {this.state.data &&
                                     <tbody>
 
-                                    {this.state.data['port'].map((dataItem, index) => {
+                                    {this.state.data[0]['port'].map((dataItem, index) => {
                                         return (
                                             <tr key={index} id='highlight'>
                                                 <td>{dataItem['portid']}</td>
@@ -249,7 +254,7 @@ export default class Register extends Component {
                                     <tr>
                                         <td>
 
-                                    {this.state.data2['sample'].map((dataItem, index) => {
+                                    {this.state.data2.map((dataItem, index) => {
                                         return (
                                                 <table key={index}>
                                                     <tbody>
