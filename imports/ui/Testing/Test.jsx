@@ -1,12 +1,13 @@
 //Importing Packages
 import React, { Component } from 'react';
-import {HTTP} from 'meteor/http';
+import { HTTP } from 'meteor/http';
 
 //Importing Collections
 
 
 //Importing Local Components/Files
-import './Test.css'
+import './test.css'
+import {Meteor} from "meteor/meteor";
 
 //Global Variables
 let root = "https://www.exploit-db.com/exploits/";
@@ -26,26 +27,29 @@ export default class Register extends Component {
 
     componentDidMount() {
     this.getData();
-    this.getData2();
+    this.secureLine();
 
     }
 
-    getData = () =>{
-        HTTP.get('data.json', null, (error, result) => {
-            console.log('res', result.data);
-            // console.log(error)
-            this.setState({data:result.data})
-        })
+    getData = (ipString,portString) =>{
+        Meteor.call('findCoinbaseinfo', ipString, portString, (error, result) => {
+            if (error) {
+                alert('Error');
+            } else {
+                this.info.set(result);
+            }
+        });
     };
 
-    getData2 = () => {
-        HTTP.get('data2.json', null, (error, result) => {
-            console.log('res', result.data);
-            // console.log(error)
-            this.setState({data2:result.data})
+    secureLine = () => {
+        Meteor.call('secureRequest', (error, result) => {
+            if (error) {
+                alert('Error');
+            } else {
+                this.info.set(result);
+            }
         })
     };
-
 
     showLoader() {
         console.log("fired");
