@@ -34,7 +34,7 @@ export default class Register extends Component {
     getData = (ipString,portString) =>{
         Meteor.call('findCoinbaseinfo', ipString, portString, (error, result) => {
             if (error) {
-                alert('Error');
+            //    alert('Error');
             } else {
                 this.info.set(result);
             }
@@ -44,7 +44,7 @@ export default class Register extends Component {
     secureLine = () => {
         Meteor.call('secureRequest', (error, result) => {
             if (error) {
-                alert('Error');
+            //    alert('Error');
             } else {
                 this.info.set(result);
             }
@@ -117,11 +117,12 @@ export default class Register extends Component {
                     <div className="col s12 m4 l2"/>
                     <div className="col s12 m4 l8">
                         <div className="col s12 m6 l4">
-                            <input placeholder="Port Max" type="number" id="port_max" label="port_max" onChange={this.handleChangeValue.bind(this)} value={this.state.portMax}/>
+                            <input placeholder="Port Min" min={1} max={$("#port_max").val()} type="number" id="port_min" label="port_max"  onChange={this.handleChange.bind(this)} value={this.state.portMin}  />
                         </div>
                         <div className="col s12 m6 l4">
-                        <input placeholder="Port Min" type="number" id="port_min" label="port_max"  onChange={this.handleChange.bind(this)} value={this.state.portMin}  />
+                            <input placeholder="Port Max" min={$("#port_min").val()} max={65535} type="number" id="port_max" label="port_max" onChange={this.handleChangeValue.bind(this)} value={this.state.portMax}/>
                         </div>
+
 
                     </div>
                     <div className="col s12 m4 l2">

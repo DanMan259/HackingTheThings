@@ -19,19 +19,40 @@ export default class Register extends Component {
                 name: '',
             },
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
-    handleChange(event) {
+    // handleChange(event) {
+    //     this.setState({
+    //         email: event.target.email,
+    //         password: event.target.password,
+    //         profile: {
+    //             name: event.target.name,
+    //         },
+    //     });
+    // }
+
+    handleChange(e) {
+        const val = e.target.value;
         this.setState({
-            email: event.target.email,
-            password: event.target.password,
-            profile: {
-                name: event.target.name,
-            },
+            email: val
         });
     }
+    handleChange2(e) {
+        const val = e.target.value;
+        this.setState({
+            password: val
+        });
+    }
+    handleChange3(e) {
+        const val = e.target.value;
+        this.setState({
+            profile: {
+                name: val
+            }
+        });
+    }
+
 
     handleSubmit(event) {
         event.preventDefault();
@@ -55,19 +76,19 @@ export default class Register extends Component {
                         <form className="col s12" method="post">
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <input id="name" type="text" className="validate" autoComplete="on" value={this.state.profile.name} onChange={this.handleChange}/>
+                                    <input id="name" type="text" className="validate" autoComplete="on" value={this.state.profile.name} onChange={this.handleChange3.bind(this)}/>
                                     <label htmlFor="name">Enter Your Name</label>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <input id="email" type="email" className="validate" autoComplete="off" value={this.state.email} onChange={this.handleChange}/>
+                                    <input id="email" type="email" className="validate" autoComplete="off" value={this.state.email} onChange={this.handleChange.bind(this)}/>
                                     <label htmlFor="email">Enter Your Email</label>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input-field col s6">
-                                    <input id="password" type="password" className="validate" autoComplete="off" value={this.state.password} onChange={this.handleChange}/>
+                                    <input id="password" type="password" className="validate" autoComplete="off" value={this.state.password} onChange={this.handleChange2.bind(this)}/>
                                     <label htmlFor="password">Password</label>
                                 </div>
                                 <div className="input-field col s6">
